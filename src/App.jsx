@@ -356,16 +356,20 @@ export default function App() {
 
         <Section id="languages" title="Languages">
           {languages.length > 0 ? (
-            languages.map((l, i) => (
-              <article className="project" key={i}>
-                <div className="project-head">
-                  <h3 className="project-title">{l.title}</h3>
-                  {l.provider && <p className="project-desc">{l.provider}</p>}
-                  {l.date && <p className="project-desc">{l.date}</p>}
+            <div className="languages-list">
+              {languages.map((l) => (
+                <div className="language-card" key={l.id}>
+                  <div className="language-head">
+                    <h3 className="language-title">{l.title}</h3>
+                    <span className="language-level badge">{l.level}</span>
+                  </div>
+                  <p className="language-provider">{l.provider}</p>
+                  <p className="language-meta">
+                    Test date: <strong>{l.testDate}</strong>
+                  </p>
                 </div>
-                {l.level && <p className="project-desc">{l.level}</p>}
-              </article>
-            ))
+              ))}
+            </div>
           ) : (
             <p className="project-empty">No language certifications yet.</p>
           )}

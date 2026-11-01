@@ -182,10 +182,12 @@ export const certifications = [
 
 export const languages = [
   {
+    id: 'ielts-academic',
     title: 'IELTS Academic',
     level: 'C1 (Advanced)',
     provider: 'British Council',
     date: 'August 2026',
+    testDate: 'August 2026',
   },
 ]
 
