@@ -330,25 +330,28 @@ export default function App() {
 
         <Section id="certifications" title="Certifications">
           {certifications.length > 0 ? (
-            certifications.map((c, i) => (
-              <article className="project" key={i}>
-                <div className="project-head">
-                  <h3 className="project-title">{c.title}</h3>
-                  {c.link && (
+            <div className="certifications-list">
+              {certifications.map((c) => (
+                <article className="cert-card" key={c.id}>
+                  <div className="cert-head">
+                    <div className="cert-brand">
+                      <span className="cert-category">{c.category}</span>
+                      {c.level && <span className="cert-level badge">{c.level}</span>}
+                    </div>
                     <a
                       href={c.link}
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`Verify ${c.title}`}
-                      className="project-link"
+                      className="cert-verify"
                     >
                       <SocialIcon name="ExternalLink" />
                     </a>
-                  )}
-                </div>
-                {c.provider && <p className="project-desc">{c.provider}</p>}
-              </article>
-            ))
+                  </div>
+                  <h3 className="cert-title">{c.title}</h3>
+                </article>
+              ))}
+            </div>
           ) : (
             <p className="project-empty">No certifications yet.</p>
           )}
